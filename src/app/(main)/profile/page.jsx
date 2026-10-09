@@ -1,10 +1,18 @@
 import { merriweather } from "@/app/layout";
 import TravelStatisticsCard from "@/components/profile/TravelStatisticsCard";
+import { auth } from "@/lib/auth";
 import { Button } from "@heroui/react";
 import { MapPin, SquarePen } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 
-const ProfilePage = () => {
+const ProfilePage = async () => {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    const user = session?.user;
+
     return (
         <div className="w-10/12 mx-auto my-20">
             <h2 className={`text-3xl font-semibold ${merriweather.className}`}>
@@ -19,15 +27,15 @@ const ProfilePage = () => {
                 <div className="col-span-4 shadow-sm p-5 border border-slate-300 rounded-xl">
                     <div className="flex flex-col items-center gap-2">
                         <Image
-                            src={'/assets/person1.png'}
-                            alt="person"
+                            src={`${user?.image}`}
+                            alt={`${user?.name}`}
                             width={150}
                             height={100}
                             className="size-40 rounded-full"
                         />
 
                         <p className="text-lg font-medium text-center">
-                            Sarah Mitchell
+                            {user?.name}
                         </p>
 
                         <p className="flex items-center gap-2 text-slate-500">

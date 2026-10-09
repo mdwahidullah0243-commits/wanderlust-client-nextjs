@@ -1,7 +1,11 @@
 import { MoveRight } from "lucide-react";
 import FeaturedCarousel from "./FeaturedCarousel";
+import { getFeatures } from "@/lib/data";
+import Link from "next/link";
 
-const FeaturedDestinations = ({ allDes }) => {
+const FeaturedDestinations = async () => {
+    const features = await getFeatures();
+
     return (
         <div className="w-10/12 mx-auto">
             <div className="flex justify-between items-center">
@@ -14,13 +18,15 @@ const FeaturedDestinations = ({ allDes }) => {
                     </p>
                 </div>
 
-                <button className="btn bg-none border border-[#0abde3] text-[#0abde3] px-5 py-2 h-auto">
-                    All Destinations
-                    <MoveRight />
-                </button>
+                <Link href={'/destinations'}>
+                    <button className="btn bg-none border border-[#0abde3] text-[#0abde3] px-5 py-2 h-auto">
+                        All Destinations
+                        <MoveRight />
+                    </button>
+                </Link>
             </div>
 
-            <FeaturedCarousel allDes={allDes} />
+            <FeaturedCarousel features={features} />
         </div>
     );
 };

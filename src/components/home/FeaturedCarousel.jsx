@@ -1,21 +1,18 @@
 'use client';
 
-import { featuredDestinations, getAllDestinations } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { forwardRef, use, useCallback, useEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import FeaturedCard from "./FeaturedCard";
 
 // --- MAIN COMPONENT ---
-const FeaturedCarousel = forwardRef(({ className, allDes }, ref) => {
+const FeaturedCarousel = forwardRef(({ className, features }, ref) => {
     const scrollContainerRef = useRef(null);
 
     const [isScrollable, setIsScrollable] = useState(false);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
-
-    const allDestinations = use(allDes);
 
     // Function to handle scrolling
     const handleScroll = (direction) => {
@@ -73,7 +70,7 @@ const FeaturedCarousel = forwardRef(({ className, allDes }, ref) => {
                     animate="visible"
                 >
                     {
-                        allDestinations.slice(0, 6).map((destination) => (
+                        features.map((destination) => (
                             <FeaturedCard key={destination._id} destination={destination} />
                         ))
                     }

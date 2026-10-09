@@ -1,3 +1,9 @@
+export const getFeatures = async () => {
+    const res = await fetch(`${process.env.SERVER_BASE_URL}/features`);
+
+    return res.json();
+}
+
 export const getAllDestinations = async () => {
     const res = await fetch(`${process.env.SERVER_BASE_URL}/destinations`);
 

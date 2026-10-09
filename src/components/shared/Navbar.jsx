@@ -40,7 +40,7 @@ const Navbar = async () => {
                 <div className="navbar-center">
                     <Link href={'/'} className="btn btn-ghost text-xl">
                         <Image
-                            src={'/assets/Wanderlast.png'}
+                            src={'/assets/wanderlast.png'}
                             alt="Logo"
                             width={150}
                             height={80}

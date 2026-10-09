@@ -20,6 +20,7 @@ export const config = {
     matcher: [
         '/admin/add-new-travel-package',
         '/my-bookings/user/:path*',
-        '/destination-details/:path*'
+        '/destination-details/:path*',
+        '/profile'
     ],
 }

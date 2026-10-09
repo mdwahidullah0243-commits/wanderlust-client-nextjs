@@ -10,9 +10,7 @@ const HomePage = () => {
 
     return (
         <div className='mt-20'>
-            <Suspense fallback={<p className='text-xl text-center font-semibold'>Loading...</p>}>
-                <FeaturedDestinations allDes={allDes} />
-            </Suspense>
+            <FeaturedDestinations allDes={allDes} />
 
             <WhyChooseWanderlust />
 

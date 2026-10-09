@@ -3,7 +3,7 @@ import Navbar from "../shared/Navbar";
 
 const Banner = () => {
     return (
-        <div className="bg-[url('/assets/banner.png')] text-white flex justify-between flex-col gap-5 h-150">
+        <div className={`bg-[url('/assets/banner.png')] text-white flex justify-between flex-col gap-5 h-150`}>
             <div className="m-5">
                 <Navbar />
             </div>
